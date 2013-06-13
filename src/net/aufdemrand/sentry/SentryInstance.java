@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -12,7 +11,6 @@ import java.util.Set;
 
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
-import net.citizensnpcs.api.trait.Trait;
 import net.citizensnpcs.api.trait.trait.Owner;
 
 //Version Specifics
@@ -650,7 +648,8 @@ public class SentryInstance {
 	}
 
 	public void Fire(LivingEntity theEntity) {
-
+		
+		
 		double v = 34;
 		double g = 20;
 
@@ -840,7 +839,7 @@ public class SentryInstance {
 
 		// OK we're shooting
 		// go twang
-		if (effect != null)
+		if (effect != null && myNPC.getBukkitEntity().getWorld() != null)
 			myNPC.getBukkitEntity().getWorld().playEffect(myNPC.getBukkitEntity().getLocation(), effect, null);
 
 		if (myProjectile == Arrow.class){
@@ -1082,31 +1081,6 @@ public class SentryInstance {
 			}
 		}
 
-		if (LuckyHits) {
-			// Calulate crits
-			double damagemodifer = event.getDamage();
-
-			int luckeyhit = r.nextInt(100);
-
-			if (luckeyhit < plugin.Crit3Chance) {
-				damagemodifer = damagemodifer * 2.00;
-				hit = hittype.disembowel;
-			} else if (luckeyhit < plugin.Crit3Chance + plugin.Crit2Chance) {
-				damagemodifer = damagemodifer * 1.75;
-				hit = hittype.main;
-			} else if (luckeyhit < plugin.Crit3Chance + plugin.Crit2Chance + plugin.Crit1Chance) {
-				damagemodifer = damagemodifer * 1.50;
-				hit = hittype.injure;
-			} else if (luckeyhit <  plugin.Crit3Chance + plugin.Crit2Chance + plugin.Crit1Chance + plugin.GlanceChance) {
-				damagemodifer = damagemodifer * 0.50;
-				hit = hittype.glance;
-			} else if (luckeyhit < plugin.Crit3Chance + plugin.Crit2Chance + plugin.Crit1Chance + plugin.GlanceChance + plugin.MissChance) {
-				damagemodifer = 0;
-				hit = hittype.miss;
-			}
-
-			finaldamage = (int) Math.round(damagemodifer);
-		}
 
 		int arm = getArmor();
 
@@ -1130,35 +1104,6 @@ public class SentryInstance {
 		if (player instanceof Player && !net.citizensnpcs.api.CitizensAPI.getNPCRegistry().isNPC(player)) {
 
 			_myDamamgers.add((Player) player);
-			String msg = null;
-			// Messages
-			switch (hit) {
-			case normal:
-				msg = plugin.HitMessage;
-				break;
-			case miss:
-				msg = plugin.MissMessage;
-				break;
-			case block:
-				msg = plugin.BlockMessage;
-				break;
-			case main:
-				msg = plugin.Crit2Message;
-				break;
-			case disembowel:
-				msg = plugin.Crit3Message;
-				break;
-			case injure:
-				msg = plugin.Crit1Message;
-				break;
-			case glance:
-				msg = plugin.GlanceMessage;
-				break;
-			}
-
-			if(msg!=null && msg.isEmpty() == false){
-				((Player) player).sendMessage(plugin.format(msg, npc, (CommandSender) player, ((Player) player).getItemInHand().getTypeId(), finaldamage+""));
-			}	
 		}
 
 		if (finaldamage > 0) {
@@ -1174,7 +1119,7 @@ public class SentryInstance {
 
 			}
 			else 	myNPC.getBukkitEntity().damage(finaldamage);
-		}
+		} 
 	}
 
 

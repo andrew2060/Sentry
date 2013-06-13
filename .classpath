@@ -2,15 +2,23 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Minecraft/BukkitAPI.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/craftbukkit.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/plugins/Vault.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/Towny.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/Factions.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/war-1.7.2.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/plugins/Citizens2.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/SimpleClans-2.4.1.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/CitizensAPI.jar"/>
-	<classpathentry kind="lib" path="C:/Minecraft/denizen-0.8-PRERELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/Libkit.jar" sourcepath="C:/Users/Andrew/Java Projects/lib/src/BukkitSRC.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/Andrew/Java Projects/lib/Libkit-JD/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/Factions.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/Vault.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://mythcraft.dyndns.org/javadoc/vault/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/Citizens.jar" sourcepath="C:/Users/Andrew/Java Projects/lib/src/Citizens_2-src/main/java"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/denizen-0.8.9-PRERELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/Towny.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/SimpleClans-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/War-v1.7.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/citizensapi-2.0.8-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/Java Projects/lib/craftbukkit-1.5.2-R0.2-20130610.181759-14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
